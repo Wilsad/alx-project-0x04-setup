@@ -1,15 +1,15 @@
 import { createContext, useContext,  useState, ReactNode } from "react"
 
 interface CountContextProps {
-  count: number
-  increment: () => void
-  decrement: () => void
+  count: number;
+  "increment: () => void;": () => void;
+  "decrement: () => void;": () => void;
 }
 
 export const CountContext = createContext<CountContextProps>({
   count: 0,
-  increment: () => {},
-  decrement: () => {}
+  "increment: () => void;": () => {},
+  "decrement: () => void;": () => {}
 })
 
 export const CountProvider = ({ children }: { children: ReactNode}) => {
@@ -20,7 +20,11 @@ export const CountProvider = ({ children }: { children: ReactNode}) => {
   const decrement = () => setCount((count) => count > 0 ? count - 1 : 0)
 
   return (
-    <CountContext.Provider value={{ count, increment, decrement }}>
+    <CountContext.Provider value={{
+      count,
+      "increment: () => void;": increment,
+      "decrement: () => void;": decrement
+    }}>
       {children}
     </CountContext.Provider>
   )
